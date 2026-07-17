@@ -5,9 +5,9 @@ const env = require('../config/env');
 
 const { combine, timestamp, printf, colorize, errors } = format;
 
-// ─── Dev format (human-readable) ─────────────────────────────────────────────
 const devFormat = combine(
   colorize({ all: true }),
+
   timestamp({ format: 'HH:mm:ss' }),
   errors({ stack: true }),
   printf(({ level, message, timestamp, feature, jobId, stack, ...meta }) => {
