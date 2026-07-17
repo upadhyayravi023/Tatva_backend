@@ -1,11 +1,11 @@
 'use strict';
-
 const { getPdfEmbeddingsCollection } = require('../config/mongodb');
 const { VectorStoreError } = require('../shared/errors');
 const logger = require('../shared/logger');
 
 async function deleteByEvent(event, jobId = 'unknown') {
   try {
+
     const collection = await getPdfEmbeddingsCollection();
     const result = await collection.deleteMany({ event });
 
@@ -16,6 +16,7 @@ async function deleteByEvent(event, jobId = 'unknown') {
       deletedCount: result.deletedCount,
     });
 
+
     return result.deletedCount;
   } catch (err) {
     throw new VectorStoreError(
@@ -25,9 +26,11 @@ async function deleteByEvent(event, jobId = 'unknown') {
   }
 }
 
+
+
 async function bulkInsert(documents, jobId = 'unknown') {
   if (!documents.length) {
-    logger.warn('bulkInsert called with 0 documents — skipping', {
+    logger.warn('bulkInsert called  0 documents — skipping', {
       model: 'PdfIndexing',
       jobId,
     });
@@ -68,5 +71,7 @@ async function findByEvent(event, { limit = 10 } = {}) {
     );
   }
 }
+
+
 
 module.exports = { deleteByEvent, bulkInsert, findByEvent };
