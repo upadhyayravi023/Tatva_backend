@@ -8,14 +8,15 @@ const PAYLOAD_SCHEMA = [
   { field: 'event', type: 'string' },
   {
     field: 'driveLink',
+
     type: 'string',
     validator: (v) => v.includes('drive.google.com'),
   },
-  { field: 'version', type: 'number' },
+  { field: 'version', type:  'number' },
 ];
 
 function validatePayload(data) {
-  if (!data || typeof data !== 'object') {
+  if (!data || typeof data!=='object') {
     throw new InvalidJobPayloadError('Job payload must be a non-null object');
   }
 
@@ -28,6 +29,7 @@ function validatePayload(data) {
         `Received: ${JSON.stringify(value)}`
       );
     }
+
 
     if (validator && !validator(value)) {
       throw new InvalidJobPayloadError(
@@ -48,9 +50,12 @@ async function handleIndexPdfJob(job) {
     attempt: job.attemptsMade + 1,
   });
 
+
+
+
   const payload = validatePayload(job.data);
 
-  logger.info('Payload valid — delegating to service', {
+  logger.info('Payload valid — delegating -> service', {
     controller: 'PdfIndexing',
     jobId,
     event: payload.event,
