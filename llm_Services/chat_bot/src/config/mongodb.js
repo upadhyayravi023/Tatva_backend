@@ -40,4 +40,8 @@ async function closeMongoConnection() {
   }
 }
 
+
+
+
+
 module.exports = { getMongoClient, getPdfEmbeddingsCollection, closeMongoConnection };
