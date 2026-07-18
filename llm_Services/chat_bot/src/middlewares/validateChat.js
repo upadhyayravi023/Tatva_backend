@@ -16,4 +16,7 @@ function validateChatRequest(req, res, next) {
   next();
 }
 
+
+
+
 module.exports = validateChatRequest;
