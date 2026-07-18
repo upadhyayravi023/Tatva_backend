@@ -8,7 +8,7 @@ const express = require('express');
 const path = require('path');
 const { closeMongoConnection } = require('./config/mongodb');
 
-// ─── Startup Banner ───────────────────────────────────────────────────────────
+
 
 logger.info('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 logger.info('  🤖 LLM Chat Service — Starting up');
@@ -16,11 +16,10 @@ logger.info(`  Model : ${env.CHAT_MODEL}`);
 logger.info(`  Env   : ${env.NODE_ENV}`);
 logger.info('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
-// ─── Express Server ───────────────────────────────────────────────────────────
+
 
 const app = express();
 
-// Parse JSON request bodies
 app.use(express.json());
 
 // CORS Middleware to allow external requests (e.g. from Admin Dashboard)
