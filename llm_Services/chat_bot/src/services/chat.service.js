@@ -17,6 +17,8 @@ function getCachedAnswer(question) {
   if (cached && (Date.now() - cached.timestamp < CACHE_TTL_MS)) {
     return cached.answer;
   }
+
+  
   return null;
 }
 
