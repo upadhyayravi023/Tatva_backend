@@ -11,8 +11,9 @@ async function handleChat(req, res) {
     res.status(200).json(result);
   } catch (err) {
     logger.error('Error occurred in handleChat controller', {
-      error: err.message,
-      stack: err.stack,
+      
+
+      
     });
 
     res.status(500).json({
