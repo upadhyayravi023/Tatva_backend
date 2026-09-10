@@ -6,15 +6,21 @@
   "scripts": {
     "start": "node src/worker.js",
     "dev": "node --watch src/worker.js",
+    "test": "node --test tests/",
     "test:enqueue": "node scripts/test-enqueue.js"
   },
   "dependencies": {
     "@google/genai": "^2.10.0",
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.1.38",
+    "@langchain/textsplitters": "*",
     "axios": "^1.7.2",
     "bullmq": "^5.12.0",
     "dotenv": "^16.4.5",
     "ioredis": "^5.4.1",
+    "langchain": "^1.5.11",
     "mongodb": "^6.7.0",
+    "p-limit": "^3.1.0",
     "pdf-parse": "^1.1.1",
     "winston": "^3.13.0"
   },
